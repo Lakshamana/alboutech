@@ -1,4 +1,4 @@
-import { CONFIG } from '@/constants';
+import { CONFIG } from '@/constants'
 
 export const HelpMessage: React.FC = () => (
   <div style={{ fontFamily: 'monospace', color: CONFIG.colors.text }}>
@@ -46,7 +46,7 @@ export const HelpMessage: React.FC = () => (
       </div>
       <div style={{ marginBottom: '8px' }}>
         <span style={{ color: CONFIG.colors.user, fontWeight: 'bold' }}>
-          msgme
+          msgme, contact
         </span>{' '}
         - Send me a message
       </div>
@@ -68,4 +68,4 @@ export const HelpMessage: React.FC = () => (
       TIP: Use TAB to autocomplete commands
     </div>
   </div>
-);
+)

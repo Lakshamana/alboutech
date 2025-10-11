@@ -1,5 +1,5 @@
-import { ASCII_FRAMES, CONFIG } from '@/constants';
-import { TrueColorBar } from './TrueColorBar';
+import { ASCII_FRAMES, CONFIG } from '@/constants'
+import { TrueColorBar } from './TrueColorBar'
 
 export const NeofetchInfo: React.FC = () => {
   return (
@@ -121,5 +121,5 @@ export const NeofetchInfo: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

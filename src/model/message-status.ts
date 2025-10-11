@@ -1,4 +1,4 @@
 export interface MessageStatus {
-  type: 'success' | 'error';
-  msg: string;
+  type: 'success' | 'error'
+  msg: string
 }

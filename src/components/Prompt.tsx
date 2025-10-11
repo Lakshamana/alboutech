@@ -1,13 +1,13 @@
-import { CONFIG } from '@/constants';
+import { CONFIG } from '@/constants'
 
 interface PromptProps {
-  user: string;
+  user: string
 }
 
 export const Prompt: React.FC<PromptProps> = ({ user }) => {
-  const isRoot = user === 'root';
-  const symbol = isRoot ? '#' : '$';
-  const path = isRoot ? '/' : '~';
+  const isRoot = user === 'root'
+  const symbol = isRoot ? '#' : '$'
+  const path = isRoot ? '/' : '~'
 
   return (
     <span style={{ fontFamily: 'monospace' }}>
@@ -28,5 +28,5 @@ export const Prompt: React.FC<PromptProps> = ({ user }) => {
         {symbol}&nbsp;
       </span>
     </span>
-  );
-};
+  )
+}

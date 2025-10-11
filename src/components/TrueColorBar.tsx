@@ -1,4 +1,4 @@
-import type React from 'react';
+import type React from 'react'
 
 export const TrueColorBar: React.FC = () => {
   // Create a more authentic neofetch-style color bar with standard terminal colors
@@ -19,20 +19,20 @@ export const TrueColorBar: React.FC = () => {
     '#ff00ff', // magenta
     '#00ffff', // cyan
     '#ffffff', // white
-  ];
+  ]
 
   return (
     <div style={{ display: 'flex', height: '8px', width: '200px' }}>
       {colors.map((color, i) => (
-        <div 
-          key={i} 
-          style={{ 
-            width: '12.5px', 
+        <div
+          key={i}
+          style={{
+            width: '12.5px',
             height: '8px',
-            backgroundColor: color 
-          }} 
+            backgroundColor: color,
+          }}
         />
       ))}
     </div>
-  );
-};
+  )
+}

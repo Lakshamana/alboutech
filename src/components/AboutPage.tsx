@@ -1,110 +1,110 @@
-import { CONFIG } from '@/constants';
-import { useState, useRef, useEffect } from 'react';
+import { CONFIG } from '@/constants'
+import { useState, useRef, useEffect } from 'react'
 
 interface AboutPageProps {
-  downloadPdf?: boolean;
-  onExit: () => void;
+  downloadPdf?: boolean
+  onExit: () => void
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({
   downloadPdf = false,
   onExit,
 }) => {
-  const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollPosition, setScrollPosition] = useState<number>(0)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const container = containerRef.current;
-      if (!container) return;
+      const container = containerRef.current
+      if (!container) return
 
-      const lineHeight = 24; // approximate line height
-      const pageHeight = container.clientHeight;
+      const lineHeight = 24 // approximate line height
+      const pageHeight = container.clientHeight
 
       switch (e.key) {
         case 'q':
         case 'Escape':
-          onExit();
-          break;
+          onExit()
+          break
         case 'j':
         case 'ArrowDown':
-          e.preventDefault();
+          e.preventDefault()
           setScrollPosition(prev =>
             Math.min(prev + lineHeight, container.scrollHeight - pageHeight)
-          );
-          break;
+          )
+          break
         case 'k':
         case 'ArrowUp':
-          e.preventDefault();
-          setScrollPosition(prev => Math.max(prev - lineHeight, 0));
-          break;
+          e.preventDefault()
+          setScrollPosition(prev => Math.max(prev - lineHeight, 0))
+          break
         case 'd':
           if (e.ctrlKey) {
-            e.preventDefault();
+            e.preventDefault()
             setScrollPosition(prev =>
               Math.min(
                 prev + pageHeight / 2,
                 container.scrollHeight - pageHeight
               )
-            );
+            )
           }
-          break;
+          break
         case 'u':
           if (e.ctrlKey) {
-            e.preventDefault();
-            setScrollPosition(prev => Math.max(prev - pageHeight / 2, 0));
+            e.preventDefault()
+            setScrollPosition(prev => Math.max(prev - pageHeight / 2, 0))
           }
-          break;
+          break
         case 'f':
         case ' ':
           if (!e.ctrlKey) {
-            e.preventDefault();
+            e.preventDefault()
             setScrollPosition(prev =>
               Math.min(prev + pageHeight, container.scrollHeight - pageHeight)
-            );
+            )
           }
-          break;
+          break
         case 'b':
           if (!e.ctrlKey) {
-            e.preventDefault();
-            setScrollPosition(prev => Math.max(prev - pageHeight, 0));
+            e.preventDefault()
+            setScrollPosition(prev => Math.max(prev - pageHeight, 0))
           }
-          break;
+          break
         case 'g':
-          e.preventDefault();
-          setScrollPosition(0);
-          break;
+          e.preventDefault()
+          setScrollPosition(0)
+          break
         case 'G':
-          e.preventDefault();
+          e.preventDefault()
           if (container) {
-            setScrollPosition(container.scrollHeight - pageHeight);
+            setScrollPosition(container.scrollHeight - pageHeight)
           }
-          break;
+          break
         case 'c':
           if (e.ctrlKey) {
-            e.preventDefault();
-            onExit();
+            e.preventDefault()
+            onExit()
           }
-          break;
+          break
       }
-    };
+    }
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onExit]);
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [onExit])
 
   useEffect(() => {
     if (containerRef.current) {
-      containerRef.current.scrollTop = scrollPosition;
+      containerRef.current.scrollTop = scrollPosition
     }
-  }, [scrollPosition]);
+  }, [scrollPosition])
 
   const maxScroll = containerRef.current
     ? containerRef.current.scrollHeight - containerRef.current.clientHeight
-    : 0;
+    : 0
   const percentage =
-    maxScroll > 0 ? Math.round((scrollPosition / maxScroll) * 100) : 100;
+    maxScroll > 0 ? Math.round((scrollPosition / maxScroll) * 100) : 100
 
   return (
     <div
@@ -342,5 +342,5 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

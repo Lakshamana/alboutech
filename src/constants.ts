@@ -1,4 +1,4 @@
-import type { Config } from '@/model/config';
+import type { Config } from '@/model/config'
 
 export const CONFIG: Config = {
   name: 'Guilherme Albuquerque',
@@ -19,7 +19,7 @@ export const CONFIG: Config = {
     background: '#282a36', // dark
     selection: '#44475a',
   },
-};
+}
 
 export const ASCII_FRAMES: string[] = [
   `
@@ -40,7 +40,7 @@ export const ASCII_FRAMES: string[] = [
     ║                               ║
     ╚═══════════════════════════════╝
   `,
-];
+]
 
 export const ALL_COMMAND_STRINGS: string[] = [
   'home',
@@ -58,4 +58,4 @@ export const ALL_COMMAND_STRINGS: string[] = [
   'contact',
   'su root',
   'su anon',
-];
+]
