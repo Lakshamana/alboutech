@@ -24,9 +24,9 @@ export const CONFIG: Config = {
 export const ASCII_FRAMES: string[] = [
   `
     ╔═══════════════════════════════╗
-    ║   { }   { }                   ║
+    ║                               ║
     ║    ∧___∧                      ║
-    ║   ( •_•)  < Hello, World!     ║
+    ║   ( •‿• )  < Hello, World!    ║
     ║   />  フ                       ║
     ║                               ║
     ╚═══════════════════════════════╝
