@@ -2,6 +2,7 @@ import { ASCII_FRAMES, CONFIG } from '@/constants'
 import { TrueColorBar } from './TrueColorBar'
 
 export const NeofetchInfo: React.FC = () => {
+  const viewportWidth = window.innerWidth
   return (
     <div
       style={{
@@ -12,13 +13,19 @@ export const NeofetchInfo: React.FC = () => {
         alignItems: 'flex-start',
       }}
     >
-      <div style={{ flexShrink: 0 }}>
-        <pre
-          style={{ color: CONFIG.colors.primary, margin: 0, fontSize: '0.9em' }}
-        >
-          {ASCII_FRAMES[0]}
-        </pre>
-      </div>
+      {viewportWidth > 768 && (
+        <div style={{ flexShrink: 0 }}>
+          <pre
+            style={{
+              color: CONFIG.colors.primary,
+              margin: 0,
+              fontSize: '0.9em',
+            }}
+          >
+            {ASCII_FRAMES[0]}
+          </pre>
+        </div>
+      )}
 
       <div style={{ flex: 1, minWidth: 0 }}>
         <div>
