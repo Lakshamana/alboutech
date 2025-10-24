@@ -6,7 +6,7 @@ interface PromptProps {
 
 export const Prompt: React.FC<PromptProps> = ({ user }) => {
   const isRoot = user === 'root'
-  const symbol = isRoot ? '#' : '$'
+  const symbol = isRoot ? '#' : 'λ'
   const path = isRoot ? '/' : '~'
 
   return (
