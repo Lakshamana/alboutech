@@ -19,6 +19,16 @@ export const CONFIG: Config = {
     background: '#282a36', // dark
     selection: '#44475a',
   },
+  links: [
+    {
+      label: 'linkedin',
+      url: 'https://www.linkedin.com/in/gsalbuquerque',
+    },
+    {
+      label: 'github',
+      url: 'https://github.com/Lakshamana',
+    },
+  ],
 }
 
 export const ASCII_FRAMES: string[] = [

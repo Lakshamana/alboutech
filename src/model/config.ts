@@ -17,4 +17,8 @@ export interface Config {
     background: string
     selection: string
   }
+  links: {
+    label: string
+    url: string
+  }[]
 }

@@ -1,8 +1,22 @@
 import { ASCII_FRAMES, CONFIG } from '@/constants'
 import { TrueColorBar } from './TrueColorBar'
+import { useEffect, useState } from 'react'
 
 export const NeofetchInfo: React.FC = () => {
-  const viewportWidth = window.innerWidth
+  const [useMobileView, setUseMobileView] = useState<boolean>(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setUseMobileView(window.innerWidth <= 768)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <div
       style={{
@@ -11,9 +25,10 @@ export const NeofetchInfo: React.FC = () => {
         display: 'flex',
         gap: '20px',
         alignItems: 'flex-start',
+        fontSize: useMobileView ? '0.7em' : '0.9em',
       }}
     >
-      {viewportWidth > 768 && (
+      {!useMobileView && (
         <div style={{ flexShrink: 0 }}>
           <pre
             style={{
@@ -58,6 +73,24 @@ export const NeofetchInfo: React.FC = () => {
             Host:
           </span>{' '}
           {CONFIG.name}'s Portfolio
+        </div>
+        <div>
+          <span style={{ color: CONFIG.colors.primary, fontWeight: 'bold' }}>
+            Links:
+          </span>{' '}
+          {CONFIG.links.map((link, index) => (
+            <span key={index}>
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: CONFIG.colors.primary, textDecorationLine: 'underline' }}
+              >
+                {link.label}
+              </a>
+              {index < CONFIG.links.length - 1 && ', '}
+            </span>
+          ))}
         </div>
         <div>
           <span style={{ color: CONFIG.colors.primary, fontWeight: 'bold' }}>
