@@ -64,11 +64,16 @@ export const MessageForm: React.FC<MessageFormProps> = ({
 
   useEffect(() => {
     subjectRef.current?.focus()
-    console.log('focused')
-  }, [subjectRef])
+  }, [])
+
+  // Prevent event bubbling to parent components
+  const handleFormClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+  }
 
   return (
     <div
+      onClick={handleFormClick}
       style={{
         fontFamily: 'monospace',
         position: 'fixed',
@@ -77,7 +82,7 @@ export const MessageForm: React.FC<MessageFormProps> = ({
         width: '100vw',
         height: '100vh',
         backgroundColor: CONFIG.colors.background,
-        zIndex: 9,
+        zIndex: 1000,
         display: 'flex',
         flexDirection: 'column',
       }}
@@ -103,7 +108,6 @@ export const MessageForm: React.FC<MessageFormProps> = ({
               value={subject}
               ref={subjectRef}
               onChange={e => setSubject(e.target.value)}
-              tabIndex={0}
               style={{
                 width: '100%',
                 padding: '8px',
